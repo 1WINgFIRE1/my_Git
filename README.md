@@ -66,4 +66,42 @@ A beginner-friendly yet powerful reimplementation of Git's core features using *
 ---
 
 ## 📁 Folder Structure
+.git/
+├── HEAD
+├── objects/
+│ ├── [SHA]/[file]
+├── refs/
+│ └── heads/
+
+
+---
+
+## 🧠 What I Learned
+
+- How Git stores everything as compressed objects using SHA-1
+- How `.git/objects` and `.git/index` work
+- The difference between working directory, staging area, and committed history
+- How to parse binary Git tree formats
+- How a commit is just metadata pointing to a tree with a message!
+
+---
+
+## 📦 How to Run
+
+```bash
+# Hash a file
+node app/main.js hash-object <file>
+
+# Create a tree from current directory
+node app/main.js write-tree
+
+# Commit the tree
+node app/main.js commit-tree <tree-sha> -m "Initial commit"
+
+# Read a blob/tree
+node app/main.js cat-file <sha>
+node app/main.js ls-tree <tree-sha>
+
+# Clone a public repo (uses isomorphic-git)
+node app/main.js clone
 

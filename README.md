@@ -66,13 +66,7 @@ A beginner-friendly yet powerful reimplementation of Git's core features using *
 ---
 
 ## 📁 Folder Structure
-.git/
-├── HEAD
-├── objects/
-│ ├── [SHA]/[file]
-├── refs/
-│ └── heads/
-
+.git/├── HEAD # Points to the current branch (e.g., refs/heads/main)├── objects/ # Contains all Git objects (blobs, trees, commits)│ ├── \[2-char SHA prefix\]/│ │ └── \[remaining SHA\] # Compressed Git object├── refs/│ └── heads/│ └── main # Points to the latest commit on the main branch
 
 ---
 

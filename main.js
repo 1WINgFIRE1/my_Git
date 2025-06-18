@@ -224,13 +224,16 @@ function createCommitTree(){
         //we use isomorphic-git npm to communicate with git because they talk in packet line format
 // }
 async function cloneRepo(){
+    const urlPath = process.argv[3];
+    const gitRepo = path.basename(new URL(urlPath).pathname, ".git");
+    const dirName = process.argv[4] || gitRepo
     try {
         const res = await git.clone({
         fs,
         http,
-        dir: path.join(process.cwd(), "testCloneFiles"),
+        dir: path.join(process.cwd(),dirName),
         corsProxy: 'https://cors.isomorphic-git.org',
-        url: "https://github.com/1WINgFIRE1/DigiPin.git",
+        url: urlPath,
         singleBranch: true,
         depth: 1
         });
